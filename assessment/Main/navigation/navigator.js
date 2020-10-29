@@ -35,8 +35,16 @@ const testTabNavigator = createBottomTabNavigator(
       ),
       navigationOptions: {
         tabBarIcon: (tabInfo) => {
-          console.log(tabInfo);
-          return <Icon name="add" size={25} />;
+          return (
+            <Icon
+              source={
+                tabInfo.focused
+                  ? require('../assets/tabIcons/add_green.png')
+                  : require('../assets/tabIcons/add_gray.png')
+              }
+              size={20}
+            />
+          );
         },
       },
     },
@@ -49,8 +57,16 @@ const testTabNavigator = createBottomTabNavigator(
       ),
       navigationOptions: {
         tabBarIcon: (tabInfo) => {
-          console.log(tabInfo);
-          return <Icon name="add" size={25} />;
+          return (
+            <Icon
+              source={
+                tabInfo.focused
+                  ? require('../assets/tabIcons/feed_green.png')
+                  : require('../assets/tabIcons/feed_gray.png')
+              }
+              size={20}
+            />
+          );
         },
       },
     },
@@ -63,7 +79,16 @@ const testTabNavigator = createBottomTabNavigator(
       ),
       navigationOptions: {
         tabBarIcon: (tabInfo) => {
-          return <Icon name="add" size={25} />;
+          return (
+            <Icon
+              source={
+                tabInfo.focused
+                  ? require('../assets/tabIcons/profile_green.png')
+                  : require('../assets/tabIcons/profile_gray.png')
+              }
+              size={20}
+            />
+          );
         },
       },
     },

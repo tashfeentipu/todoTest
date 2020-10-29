@@ -24,8 +24,25 @@ const TodoComponent = (props) => {
           }}
         />
         <View style={styles.contents}>
-          <Text style={styles.contentTitle}>{props.payload.task}</Text>
-          <Text style={styles.contentDue}>{props.payload.timeFrame}</Text>
+          <Text
+            style={{
+              ...styles.contentTitle,
+              ...{
+                textDecorationLine: props.payload.completed
+                  ? 'line-through'
+                  : null,
+                color: props.payload.completed ? 'gray' : 'black',
+              },
+            }}>
+            {props.payload.task}
+          </Text>
+          <Text
+            style={{
+              ...styles.contentDue,
+              ...{color: props.payload.completed ? 'gray' : 'black'},
+            }}>
+            {props.payload.timeFrame}
+          </Text>
         </View>
       </View>
     </Swipeable>

@@ -26,28 +26,6 @@ const defaultNavigationOptions = {
 
 const testTabNavigator = createBottomTabNavigator(
   {
-    add: {
-      screen: createStackNavigator(
-        {screen: AddScreen},
-        {
-          defaultNavigationOptions: defaultNavigationOptions,
-        },
-      ),
-      navigationOptions: {
-        tabBarIcon: (tabInfo) => {
-          return (
-            <Icon
-              source={
-                tabInfo.focused
-                  ? require('../assets/tabIcons/add_green.png')
-                  : require('../assets/tabIcons/add_gray.png')
-              }
-              size={20}
-            />
-          );
-        },
-      },
-    },
     feed: {
       screen: createStackNavigator(
         {screen: FeedScreen},
@@ -63,6 +41,28 @@ const testTabNavigator = createBottomTabNavigator(
                 tabInfo.focused
                   ? require('../assets/tabIcons/feed_green.png')
                   : require('../assets/tabIcons/feed_gray.png')
+              }
+              size={20}
+            />
+          );
+        },
+      },
+    },
+    add: {
+      screen: createStackNavigator(
+        {screen: AddScreen},
+        {
+          defaultNavigationOptions: defaultNavigationOptions,
+        },
+      ),
+      navigationOptions: {
+        tabBarIcon: (tabInfo) => {
+          return (
+            <Icon
+              source={
+                tabInfo.focused
+                  ? require('../assets/tabIcons/add_green.png')
+                  : require('../assets/tabIcons/add_gray.png')
               }
               size={20}
             />
@@ -94,6 +94,10 @@ const testTabNavigator = createBottomTabNavigator(
     },
   },
   {
+    tabBarOptions: {
+      showLabel: false,
+    },
+
     navigationOptions: {
       header: null,
     },
@@ -101,8 +105,8 @@ const testTabNavigator = createBottomTabNavigator(
 );
 
 const testStackNavigator = createStackNavigator({
-  tabNav: testTabNavigator,
   login: LoginScreen,
+  tabNav: testTabNavigator,
 });
 
 export default createAppContainer(testStackNavigator);

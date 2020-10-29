@@ -13,16 +13,15 @@ const profileScreen = (props) => {
   }, []);
 
   return (
-    <View style={styles.screen}>
+    <TouchableOpacity
+      style={styles.screen}
+      onPress={() => {
+        props.navigation.pop();
+      }}>
       <View style={styles.main}>
-        <TouchableOpacity
-          onPress={() => {
-            props.navigation.pop();
-          }}>
-          <Text style={styles.text}>Logout</Text>
-        </TouchableOpacity>
+        <Text style={styles.text}>Logout</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

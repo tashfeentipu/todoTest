@@ -1,12 +1,17 @@
 import React from 'react';
 import {TouchableOpacity, Text, StyleSheet} from 'react-native';
 
+import {useDispatch} from 'react-redux';
+import {todoCompleted} from '../store/TodoActions';
+
 const LeftSwipe = (props) => {
+  const dispatch = useDispatch();
+
   return (
     <TouchableOpacity
       style={styles.screen}
       onPress={() => {
-        props.navigationData.navigation.navigate('add');
+        dispatch(todoCompleted(props.id));
       }}>
       <Text>Finish</Text>
     </TouchableOpacity>

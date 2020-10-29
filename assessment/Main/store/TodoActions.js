@@ -1,6 +1,6 @@
 export const TODO_DELETE = 'TODO_DELETE';
 export const TODO_ADD = 'TODO_ADD';
-export const TODO_EDIT = 'TODO_EDIT';
+export const TODO_COMPLETED = 'TODO_COMPLETED';
 
 export const EMIT_NAME = 'EMIT_NAME';
 
@@ -15,6 +15,13 @@ export const todoAdd = (payload) => {
   return {
     type: TODO_ADD,
     payload: payload,
+  };
+};
+
+export const todoCompleted = (id) => {
+  return {
+    type: TODO_COMPLETED,
+    todoCompletedId: id,
   };
 };
 

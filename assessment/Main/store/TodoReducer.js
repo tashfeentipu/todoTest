@@ -1,26 +1,29 @@
 import addTodoModel from '../model/addTodo';
 
-import {TODO_DELETE, TODO_ADD, TODO_EDIT, EMIT_NAME} from './TodoActions';
+import {TODO_DELETE, TODO_ADD, TODO_COMPLETED, EMIT_NAME} from './TodoActions';
 
 const initialState = {
   TodoList: [
     new addTodoModel(
       Math.floor(Math.random() * 100).toString(),
-      'Tipu',
+      'Todo 1',
       'New Todo',
       '#498fe1',
+      false,
     ),
     new addTodoModel(
       Math.floor(Math.random() * 100).toString(),
-      'Tipu',
+      'Todo 2',
       'New Todo',
       '#498fe1',
+      false,
     ),
     new addTodoModel(
       Math.floor(Math.random() * 100).toString(),
-      'Tipu',
+      'Todo 3',
       'New Todo',
       '#498fe1',
+      false,
     ),
   ],
   headerName: '',
@@ -45,11 +48,29 @@ const todoReducer = (state = initialState, action) => {
           action.payload.title,
           action.payload.due,
           action.payload.color,
+          false,
         ),
       );
       return {...state, TodoList: newState};
 
-    case TODO_EDIT:
+    case TODO_COMPLETED:
+      const updatedTodoList = state.TodoList.filter(
+        (element) => element.id === action.todoCompletedId,
+      )[0];
+
+      const indexUpdate = state.TodoList.findIndex(
+        (element) => element.id === action.todoCompletedId,
+      );
+
+      updatedTodoList.completed = true;
+      updatedTodoList.timeFrame = 'Completed';
+
+      const updatedTodoArray = [...state.TodoList];
+
+      updatedTodoArray[indexUpdate] = updatedTodoList;
+
+      return {...state, TodoList: updatedTodoArray};
+
     case EMIT_NAME:
       return {...state, headerName: action.name};
 

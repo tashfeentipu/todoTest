@@ -7,7 +7,7 @@ const circle = (props) => {
     <View
       style={{
         ...styles.circle,
-        ...{ backgroundColor: `${props.color}`, opacity: circleOpacity },
+        ...{ backgroundColor: `${props.color}`, opacity: props.circleOpacity },
       }}
     ></View>
   );

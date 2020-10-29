@@ -21,7 +21,7 @@ import {Colors, buttonSize} from '../constants/Const';
 const addScreen = (props) => {
   const dispatch = useDispatch();
 
-  const colorArray = ['#498fe1', '#dff4c7', '#f3bfc6', '#eec3f7', '#fce8c8'];
+  const colorArray = ['#498fe1', '#acd280', '#f3bfc6', '#eec3f7', '#eed6af'];
 
   const [title, setTitle] = useState('');
   const [due, setDue] = useState('');
@@ -85,7 +85,7 @@ const addScreen = (props) => {
                 <Circle
                   color={element}
                   key={element}
-                  onSelect={props.onSelect}
+                  circleOpacity={element === tag ? 1 : 0.5}
                 />
               </TouchableOpacity>
             );
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 15,
   },
-  tagContainer: {flexDirection: 'row', padding: 10},
+  tagContainer: {flexDirection: 'row'},
   container: {margin: 10},
   buttonContainer: {margin: 10},
   button: {width: buttonSize.width, height: buttonSize.height},

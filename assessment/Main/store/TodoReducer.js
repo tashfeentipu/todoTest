@@ -1,6 +1,6 @@
 import addTodoModel from '../model/addTodo';
 
-import {TODO_DELETE, TODO_ADD, EMIT_EDIT, EMIT_NAME} from './TodoActions';
+import {TODO_DELETE, TODO_ADD, TODO_EDIT, EMIT_NAME} from './TodoActions';
 
 const initialState = {
   TodoList: [
@@ -8,24 +8,22 @@ const initialState = {
       Math.floor(Math.random() * 100).toString(),
       'Tipu',
       'New Todo',
-      'black',
+      '#498fe1',
     ),
     new addTodoModel(
       Math.floor(Math.random() * 100).toString(),
       'Tipu',
       'New Todo',
-      'black',
+      '#498fe1',
     ),
     new addTodoModel(
       Math.floor(Math.random() * 100).toString(),
       'Tipu',
       'New Todo',
-      'black',
+      '#498fe1',
     ),
   ],
   headerName: '',
-  edit: false,
-  editId: '',
 };
 
 const todoReducer = (state = initialState, action) => {
@@ -51,8 +49,7 @@ const todoReducer = (state = initialState, action) => {
       );
       return {...state, TodoList: newState};
 
-    case EMIT_EDIT:
-      return {...state, editId: action.editId, edit: true};
+    case TODO_EDIT:
     case EMIT_NAME:
       return {...state, headerName: action.name};
 

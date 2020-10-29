@@ -16,6 +16,10 @@ import {Colors} from '../constants/Const';
 const defaultNavigationOptions = {
   headerStyle: {
     backgroundColor: Colors.button,
+    height: 96,
+  },
+  headerTitleStyle: {
+    fontWeight: '500',
   },
   headerTintColor: 'white',
 };
@@ -59,7 +63,6 @@ const testTabNavigator = createBottomTabNavigator(
       ),
       navigationOptions: {
         tabBarIcon: (tabInfo) => {
-          console.log(tabInfo);
           return <Icon name="add" size={25} />;
         },
       },
@@ -68,14 +71,6 @@ const testTabNavigator = createBottomTabNavigator(
   {
     navigationOptions: {
       header: null,
-    },
-  },
-  {
-    tabBarOptions: {
-      // labelStyle: {
-      //   fontFamily: "open-sans",
-      // },
-      activeTintColor: 'Green',
     },
   },
 );
